@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'states.dart';
 
 class Controller {
-  static const String baseUrl = "http://localhost:3000/notes";
+  static const String baseUrl = "https://notes-keeper-backend-sigma.vercel.app/notes";
 
   static Future<bool> signUp(String username, String password) async {
     final Uri url = Uri.parse("$baseUrl/signup");

@@ -59,7 +59,7 @@ class LoginPage extends State<Login> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SvgPicture.asset(
-              "assets/icons/logo.svg",
+              "asset/icons/logo.svg",
               width: 50,
               height: 50,
               colorFilter: ColorFilter.mode(Colors.black, BlendMode.srcIn),

@@ -75,7 +75,7 @@ class _HomeState extends State<Home> {
                   Row(
                     children: [
                       SvgPicture.asset(
-                        "assets/icons/logo.svg",
+                        "asset/icons/logo.svg",
                         width: 30,
                         height: 30,
                         colorFilter:
