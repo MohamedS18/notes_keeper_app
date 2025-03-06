@@ -27,9 +27,9 @@ class _MainAppState extends State<MainApp> {
           debugShowCheckedModeBanner: false,
           title: "Notes Keeper",
           theme: ThemeData(
-            textTheme: GoogleFonts.poppinsTextTheme().apply(
-              fontFamilyFallback: ['Roboto', 'Arial'],
-            ),
+            fontFamily: 'Poppins',
+            fontFamilyFallback: ['Roboto', 'Arial'],
+            textTheme: GoogleFonts.poppinsTextTheme(),
             useMaterial3: true,
             colorScheme: ColorScheme.fromSeed(
               seedColor: const Color.fromARGB(255, 255, 255, 7),
