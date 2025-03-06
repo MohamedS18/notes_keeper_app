@@ -27,38 +27,33 @@ class Notes extends StatelessWidget {
 
     return Container(
       padding: EdgeInsets.all(16),
-      margin: EdgeInsets.all(16), // Adds spacing inside the container
+      margin: EdgeInsets.all(16),
 
       decoration: BoxDecoration(
         color:
             Theme.of(context).brightness == Brightness.dark
-                ? Colors.grey[900] // 🌙 Dark mode color
-                : Colors.white, // Optional background color
-        borderRadius: BorderRadius.circular(10), // Optional rounded corners
+                ? Colors.grey[900]
+                : Colors.white,
+        borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(color: Colors.black12, blurRadius: 5, spreadRadius: 2),
         ],
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start, // Aligns text to the left
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             title,
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-            ), // ✅ Correct title
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
-          SizedBox(height: 8), // Adds spacing
-          Text(description), // ✅ Regular text
-          SizedBox(height: 12), // Adds spacing before row
+          SizedBox(height: 8),
+          Text(description),
+          SizedBox(height: 12),
           Row(
-            mainAxisAlignment:
-                MainAxisAlignment.spaceBetween, // ✅ Spreads content evenly
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(DateFormat("dd/MM/yyyy HH:mm").format(created)),
               FilledButton(
-                // key:ValueKey(id),
                 onPressed: () async {
                   bool res = await Controller.deleteNote(
                     context.read<States>().username,

@@ -16,8 +16,6 @@ class LoginPage extends State<Login> {
   final TextEditingController username = TextEditingController(text: "");
   final TextEditingController password = TextEditingController(text: "");
 
-  
-
   void showError(message) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(message), backgroundColor: Colors.red),
@@ -75,7 +73,7 @@ class LoginPage extends State<Login> {
             ),
             SizedBox(height: 20.0),
             TextField(
-              obscureText: true, 
+              obscureText: true,
               controller: password,
               decoration: InputDecoration(
                 label: Text("pin"),
@@ -92,21 +90,19 @@ class LoginPage extends State<Login> {
                     username.text,
                     password.text,
                   );
-
                 } else {
                   response = await Controller.login(
                     username.text,
                     password.text,
                   );
                 }
-                 if (response) {
-                    context.read<States>().setUsername(username.text);
-                    States.setIsLogged(true);
-                    Navigator.popAndPushNamed(context, "/home");
-                  } else {
-                    showError("Wrong credentials");
-                  }
-
+                if (response) {
+                  context.read<States>().setUsername(username.text);
+                  States.setIsLogged(true);
+                  Navigator.popAndPushNamed(context, "/home");
+                } else {
+                  showError("Wrong credentials");
+                }
               },
               style: FilledButton.styleFrom(backgroundColor: Colors.amber),
               child: Text(isSignUp ? "Sign Up" : "Login"),

@@ -3,7 +3,7 @@ import 'package:notes_keeper_app/login.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:notes_keeper_app/home.dart';
 import 'package:provider/provider.dart';
-import 'states.dart'; 
+import 'states.dart';
 
 void main() {
   runApp(
@@ -58,15 +58,12 @@ class _MainAppState extends State<MainApp> {
     );
   }
 
-  /// Wraps any screen inside a mobile-sized container
   Widget _buildMobileScreen(Widget screen) {
     return LayoutBuilder(
       builder: (context, constraints) {
         return Center(
           child: ConstrainedBox(
-            constraints: BoxConstraints(
-              maxWidth: 480, // Max width for mobile view
-            ),
+            constraints: BoxConstraints(maxWidth: 480),
             child: screen,
           ),
         );

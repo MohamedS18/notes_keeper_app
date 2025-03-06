@@ -5,19 +5,17 @@ class States extends ChangeNotifier {
   bool isDarkMode = false;
   static bool isLogged = false;
 
-
-
-  void setIsDarkMode(){
+  void setIsDarkMode() {
     isDarkMode = !isDarkMode;
     notifyListeners();
   }
 
-  static void setIsLogged(bool val){
+  static void setIsLogged(bool val) {
     isLogged = val;
   }
 
   void setUsername(String newName) {
     username = newName;
-    notifyListeners(); // 🔥 Updates UI automatically
+    notifyListeners();
   }
 }

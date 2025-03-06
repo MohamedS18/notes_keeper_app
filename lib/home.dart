@@ -160,17 +160,14 @@ class _HomeState extends State<Home> {
                       children: [
                         Positioned.fill(
                           child: BackdropFilter(
-                            filter: ImageFilter.blur(
-                              sigmaX: 3,
-                              sigmaY: 3,
-                            ), // Blur effect
+                            filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
                             child: Container(
                               color: const Color.fromARGB(
                                 255,
                                 158,
                                 158,
                                 158,
-                              ).withAlpha((0.2 * 255).toInt()), // Fixed opacity
+                              ).withAlpha((0.2 * 255).toInt()),
                             ),
                           ),
                         ),
