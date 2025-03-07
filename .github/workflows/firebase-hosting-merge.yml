@@ -2,24 +2,32 @@
 # https://github.com/firebase/firebase-tools
 
 name: Deploy to Firebase Hosting on merge
+
 on:
   push:
     branches:
       - master
+
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: |
-          git clone https://github.com/flutter/flutter.git -b stable --depth 1 $HOME/flutter &&
-          echo "$HOME/flutter/bin" >> $GITHUB_PATH &&
-          flutter doctor &&
-          flutter pub get &&
+
+      - name: Set up Flutter and Build Web App
+        run: |
+          git clone https://github.com/flutter/flutter.git -b stable --depth 1 $HOME/flutter
+          echo "$HOME/flutter/bin" >> $GITHUB_PATH
+          export PATH="$HOME/flutter/bin:$PATH"
+          flutter doctor
+          flutter pub get
           flutter build web
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+
+      - name: Deploy to Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_NOTES_KEEPER_APP_BETA_100 }}
           channelId: live
           projectId: notes-keeper-app-beta-100
+
